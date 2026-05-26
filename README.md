@@ -1,4 +1,4 @@
-# 🖥️ Homelab
+#  Homelab
 
 A personal homelab build log documenting my journey learning networking, virtualization, and self-hosted services — built hands-on as a Computer Engineering student at the University of Kentucky.
 
@@ -33,13 +33,13 @@ A personal homelab build log documenting my journey learning networking, virtual
 
 ## Network Topology
 
-> 🚧 In progress — router setup pending.
+>  In progress — router setup pending.
 
 ---
 
 ## Services
 
-> 🚧 No services deployed yet — coming soon.
+>  No services deployed yet - Waiting for Network Configuration
 
 ---
 
@@ -67,6 +67,8 @@ This homelab is a learning environment I'm building alongside my Computer Engine
 | May 2026 | Installed Proxmox VE on Dell OptiPlex 7050 SFF |
 | May 2026 | Created public homelab repo to document the build |
 | May 2026 | Purchased 16GB DDR4-2400 UDIMM upgrade (install pending) |
+| May 2026 | Purchased Netgear Nighthawk router (install pending) |
+
 
 ---
 
