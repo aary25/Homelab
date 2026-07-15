@@ -1,124 +1,86 @@
-# Homelab
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=28&pause=1000&color=E8FF47&background=0A0A0C00&center=true&vCenter=true&width=600&lines=Hey%2C+I'm+Aary+%F0%9F%91%8B;Computer+Engineer+%40+UK;Hardware+%2B+Software+Builder;FPGA+%7C+Embedded+%7C+Systems" alt="Typing SVG" />
+</div>
 
-> Self-hosted DevOps stack on Proxmox VE · Debian 13 Trixie · Docker
+<br/>
 
-## Architecture
+## Aary Patel
 
-<!-- Export the architecture diagram as a PNG and drop it in docs/: -->
-<!-- ![Architecture](./docs/architecture.png) -->
+Computer Engineering student at the University of Kentucky, building at the intersection of **hardware and software**. I design digital systems, write embedded code, and create things that bridge the physical and digital worlds.
 
-## Hardware
+---
 
-| Component | Details |
-|-----------|---------|
-| Host | Dell OptiPlex 7050 SFF |
-| CPU | Intel Core i7-6700 (4C/8T, 3.4 GHz) |
-| RAM | 24 GB DDR4 |
-| Hypervisor | Proxmox VE 8 |
-| Network | NETGEAR RAX48 — DHCP MAC reservations for all three devices |
+### Currently working on
 
-## Virtual machines
+- Digital logic design with **Verilog & FPGA** (Vivado)
+- Embedded systems prototyping with **Arduino**
+- Home lab: **Active Directory**, networking, and bare-metal Linux
+- Pursuing **CompTIA** certifications
 
-| VM | IP | OS | RAM | Role |
-|----|----|----|-----|------|
-| VM 100 · `debian` | `192.168.1.6` | Debian 13 Trixie | 8 GB | Docker host — all services |
-| VM 101 · `minecraft` | `192.168.1.8` | Debian 13 Trixie | 12 GB | Dedicated game server |
+---
 
-Both VMs are set to `onboot: 1` — they auto-start whenever the Proxmox host boots.
+### Experience
 
-## Stack
+- RTL design and simulation — synchronous counters, FSMs, flip-flops, LFSRs, 7-segment decoders
+- Embedded hardware prototyping — oscilloscope builds, drone feasibility research
+- Systems administration — self-hosted Windows Server, DNS/DHCP, Active Directory
+- Software development — data structures, OOP, algorithms in C++ and Java
 
-| Layer | Tool | Purpose |
-|-------|------|---------|
-| Hypervisor | Proxmox VE 8 | VM provisioning and management |
-| Firewall | UFW | Default-deny inbound, explicit port allowlist |
-| IDS | Fail2ban | Auto-bans IPs after repeated failed logins |
-| VPN | Tailscale | Mesh VPN for remote admin — punches through CG-NAT |
-| DNS | DuckDNS (`aarylab.duckdns.org`) | Dynamic hostname updated every 5 min via cron |
-| Proxy | Nginx Proxy Manager | Reverse proxy + automatic TLS (Let's Encrypt) |
-| Management | Portainer | Container UI and Docker Compose stack management |
-| Git | Gitea | Self-hosted version control |
-| CI/CD | Woodpecker | Automated pipelines triggered on every Gitea push |
-| Metrics | Prometheus + Node Exporter | Scrapes system metrics every 15 s |
-| Dashboards | Grafana | Visualization, custom dashboards, threshold alerting |
-| Media | Calibre-web | Self-hosted ebook library |
-| Game | Minecraft Java (`itzg/minecraft-server`) | Dedicated server with Aikar JVM flags |
-| Tunnel | playit.gg | External Minecraft access despite CG-NAT |
+---
 
-## Networking
+### Tech Stack
 
-The apartment ISP uses **CG-NAT** — the WAN IP is in the `10.x.x.x` range, making traditional inbound port forwarding from the router impossible.
+**Hardware & Digital Design**
 
-Three-part solution:
+![Verilog](https://img.shields.io/badge/Verilog-E8FF47?style=for-the-badge&logoColor=0a0a0c)
+![FPGA](https://img.shields.io/badge/FPGA-E8FF47?style=for-the-badge&logoColor=0a0a0c)
+![Vivado](https://img.shields.io/badge/Vivado-E8FF47?style=for-the-badge&logoColor=0a0a0c)
+![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+![Onshape](https://img.shields.io/badge/Onshape-4A90D9?style=for-the-badge&logoColor=white)
 
-- **Tailscale** (WireGuard-based mesh VPN): installed on VM 100 and all admin devices. Establishes peer-to-peer tunnels that punch through CG-NAT with no open ports required. VM 100 Tailscale IP: `100.92.79.114`. This handles all remote administration.
-- **playit.gg**: a tunnel agent on VM 101 proxies Minecraft traffic through playit's relay servers. Public join address: `physical-scared.gl.joinmc.link`. Friends connect here — no VPN, no port forwarding required.
-- **DuckDNS** (`aarylab.duckdns.org`): tracks the dynamic public IP. Not used for direct inbound access (blocked by CG-NAT), but kept for reference and maintained via a 5-minute cron job.
+**Software Development**
 
-## Services
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MATLAB](https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logoColor=white)
 
-| Service | Internal port | External access |
-|---------|--------------|----------------|
-| Portainer | 9443 | Tailscale only |
-| Nginx Proxy Manager | 80 / 443 / 81 | Tailscale only |
-| Gitea | 3000 | Tailscale only |
-| Woodpecker CI | 8000 | Tailscale only |
-| Prometheus | 9090 | Tailscale only |
-| Grafana | 3001 | Tailscale only |
-| Node Exporter | 9100 | Internal only |
-| Calibre-web | — | Tailscale only |
-| Minecraft | 25565 | playit.gg → `physical-scared.gl.joinmc.link` |
+**Systems & Infrastructure**
 
-## Build phases
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Windows Server](https://img.shields.io/badge/Windows_Server-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Active Directory](https://img.shields.io/badge/Active_Directory-0078D6?style=for-the-badge&logo=microsoft&logoColor=white)
 
-- [x] **Phase 1 — Security foundation:** UFW default-deny, Fail2ban, SSH key auth (passwords disabled), DuckDNS cron, Tailscale
-- [x] **Phase 2 — Container infrastructure:** Docker Engine, Portainer, Nginx Proxy Manager
-- [x] **Phase 3 — Dev platform:** Gitea, Woodpecker CI/CD
-- [x] **Phase 4 — Observability:** Node Exporter, Prometheus, Grafana (dashboard #1860)
-- [ ] **Phase 5 — Documentation:** Architecture diagram, README, LinkedIn posts, resume bullets *(in progress)*
+---
 
-## Why I built this
+### Interests
 
-<!-- Write 2–3 sentences on what drew you to this project and what you wanted to learn. -->
+`Hardware Design` · `Embedded Systems` · `Digital Logic` · `Systems Administration` · `FPGA` · `Home Lab` · `Photography` · `Open Source`
 
-## What I learned
+---
 
-<!-- Write 3–5 paragraphs on key technical concepts, unexpected challenges, and anything that surprised you. -->
+### GitHub Stats
 
-## Reproducing this setup
+<div align="center">
 
-### Prerequisites
+![Aary's GitHub Stats](https://github-readme-stats.vercel.app/api?username=aary25&show_icons=true&theme=chartreuse-dark&hide_border=true&bg_color=0a0a0c&title_color=e8ff47&icon_color=47c8ff&text_color=e8e8f0)
 
-- A machine capable of running Proxmox VE (or any Debian 13 VM as a starting point)
-- A router with DHCP reservation support
-- Free accounts: [DuckDNS](https://www.duckdns.org), [Tailscale](https://tailscale.com), [playit.gg](https://playit.gg) *(game server only)*
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=aary25&layout=compact&theme=chartreuse-dark&hide_border=true&bg_color=0a0a0c&title_color=e8ff47&text_color=e8e8f0)
 
-### Setup order
+</div>
 
-```bash
-# 1. Install Proxmox VE, create two Debian 13 VMs
-#    Set onboot: 1 on both in Proxmox Options
+---
 
-# 2. Phase 1 — security (run on VM 100)
-sudo apt install ufw fail2ban -y
-sudo ufw default deny incoming && sudo ufw allow 22/tcp && sudo ufw enable
-# Configure SSH key auth, disable password login
-# DuckDNS cron: */5 * * * * ~/duckdns/duck.sh
-curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up
+### Let's Connect
 
-# 3. Phase 2 — containers
-curl -fsSL https://get.docker.com | sudo sh
-# Deploy Portainer and Nginx PM via Docker Compose
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aarypatel25)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:aaryp25@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-E8FF47?style=for-the-badge&logoColor=0a0a0c)](https://aary25.github.io)
 
-# 4. Phase 3 — dev platform
-# Deploy Gitea, then Woodpecker; connect via webhook in Gitea settings
+<br/>
 
-# 5. Phase 4 — observability
-# Deploy Node Exporter, Prometheus, Grafana
-# In Grafana: Connections → Prometheus, then import dashboard ID 1860
-
-# 6. VM 101 — game server
-# Install Docker, run itzg/minecraft-server, install playit.gg agent
-```
-
-**Critical**: add DHCP MAC reservations in your router for all three devices (Proxmox host + both VMs). IP drift after reboots or network changes will break connectivity.
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=aary25&style=flat-square&color=e8ff47&label=profile+views" alt="profile views"/>
+</div>

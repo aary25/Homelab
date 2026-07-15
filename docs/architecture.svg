@@ -1,0 +1,218 @@
+<svg viewBox="0 0 960 700" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,SFMono-Regular,SF Mono,Menlo,monospace">
+  <defs>
+    <marker id="arr-cyan" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0 0, 8 3.5, 0 7" fill="#06b6d4"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0 0, 8 3.5, 0 7" fill="#a855f7"/>
+    </marker>
+    <marker id="arr-amber" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0 0, 8 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1a2236" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="700" fill="#0d1117" rx="10"/>
+  <rect width="960" height="700" fill="url(#grid)" rx="10"/>
+
+  <!-- ══════════════════════════════════ TITLE ══════════════════════════════════ -->
+  <text x="480" y="28" text-anchor="middle" fill="#e6edf3" font-size="16" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="-0.3">Homelab Architecture</text>
+  <text x="480" y="46" text-anchor="middle" fill="#8b949e" font-size="10" font-family="system-ui,sans-serif">Proxmox VE 8 · Debian 13 Trixie · Docker · Tailscale · playit.gg</text>
+
+  <!-- ══════════════════════════ INTERNET ZONE ══════════════════════════ -->
+  <rect x="15" y="58" width="930" height="100" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="480" y="73" text-anchor="middle" fill="#8b949e" font-size="9" font-family="system-ui,sans-serif" letter-spacing="2">INTERNET</text>
+
+  <!-- Admin devices (left) -->
+  <rect x="28" y="80" width="155" height="65" fill="#0d2137" rx="6" stroke="#06b6d4" stroke-width="1.2"/>
+  <text x="105" y="99" text-anchor="middle" fill="#06b6d4" font-size="10" font-weight="700" font-family="system-ui,sans-serif">Admin Devices</text>
+  <text x="105" y="114" text-anchor="middle" fill="#c9d1d9" font-size="9">Windows Desktop · MSI Laptop</text>
+  <text x="105" y="128" text-anchor="middle" fill="#8b949e" font-size="8">Tailscale clients installed</text>
+  <text x="105" y="139" text-anchor="middle" fill="#8b949e" font-size="8">ssh aary@100.92.79.114</text>
+
+  <!-- DuckDNS center -->
+  <rect x="380" y="80" width="200" height="65" fill="#0d1b2e" rx="6" stroke="#1f6feb" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="480" y="100" text-anchor="middle" fill="#388bfd" font-size="10" font-weight="700" font-family="system-ui,sans-serif">DuckDNS</text>
+  <text x="480" y="115" text-anchor="middle" fill="#c9d1d9" font-size="9">aarylab.duckdns.org</text>
+  <text x="480" y="129" text-anchor="middle" fill="#8b949e" font-size="8">cron every 5 min · tracks dynamic WAN IP</text>
+  <text x="480" y="141" text-anchor="middle" fill="#f85149" font-size="8">⚠ blocked by ISP CG-NAT for inbound</text>
+
+  <!-- Minecraft players (right) -->
+  <rect x="777" y="80" width="155" height="65" fill="#1a0d29" rx="6" stroke="#a855f7" stroke-width="1.2"/>
+  <text x="854" y="99" text-anchor="middle" fill="#d2a8ff" font-size="10" font-weight="700" font-family="system-ui,sans-serif">Minecraft Players</text>
+  <text x="854" y="114" text-anchor="middle" fill="#c9d1d9" font-size="9">physical-scared</text>
+  <text x="854" y="128" text-anchor="middle" fill="#c9d1d9" font-size="9">.gl.joinmc.link</text>
+  <text x="854" y="141" text-anchor="middle" fill="#8b949e" font-size="8">no VPN required</text>
+
+  <!-- ══════════════ CG-NAT BARRIER ══════════════ -->
+  <rect x="15" y="165" width="930" height="26" fill="#160000" rx="4" stroke="#da3633" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="480" y="182" text-anchor="middle" fill="#f85149" font-size="9" font-weight="600" font-family="system-ui,sans-serif" letter-spacing="0.5">⚠  CG-NAT BARRIER — WAN: 10.104.6.249 — Inbound port-forwarding blocked by ISP — outbound tunnels only</text>
+
+  <!-- ══════════════ ROUTER ══════════════ -->
+  <rect x="15" y="197" width="930" height="40" fill="#161b22" rx="6" stroke="#30363d" stroke-width="1"/>
+  <text x="480" y="212" text-anchor="middle" fill="#8b949e" font-size="9" font-family="system-ui,sans-serif" letter-spacing="2">HOME NETWORK</text>
+  <text x="480" y="229" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600" font-family="system-ui,sans-serif">NETGEAR Nighthawk RAX48 — 192.168.1.1 — DHCP MAC reservations: all 3 devices</text>
+
+  <!-- ══════════════════════════════ PROXMOX HOST ══════════════════════════════ -->
+  <rect x="15" y="243" width="930" height="446" fill="#0d1117" rx="10" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="27" y="261" fill="#8b949e" font-size="9" font-family="system-ui,sans-serif" letter-spacing="2">PROXMOX VE 8</text>
+  <text x="480" y="261" text-anchor="middle" fill="#388bfd" font-size="12" font-weight="700" font-family="system-ui,sans-serif">Dell OptiPlex 7050 SFF — Intel i7-6700 (4C/8T) — 24 GB DDR4 — 192.168.1.5</text>
+
+  <!-- ══════════════════════ VM 100 ══════════════════════ -->
+  <rect x="28" y="270" width="570" height="412" fill="#010409" rx="8" stroke="#238636" stroke-width="1.2"/>
+  <text x="313" y="289" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="700" font-family="system-ui,sans-serif">VM 100 · debian</text>
+  <text x="313" y="303" text-anchor="middle" fill="#8b949e" font-size="9">192.168.1.6 · Tailscale 100.92.79.114 · 8 GB RAM · Debian 13 Trixie · Docker host</text>
+
+  <!-- Security -->
+  <rect x="42" y="312" width="265" height="68" fill="#160b0b" rx="6" stroke="#da3633" stroke-width="1"/>
+  <text x="174" y="329" text-anchor="middle" fill="#f85149" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">SECURITY</text>
+  <text x="174" y="346" text-anchor="middle" fill="#ffa198" font-size="11" font-weight="600">UFW · Fail2ban</text>
+  <text x="174" y="361" text-anchor="middle" fill="#8b949e" font-size="8">default-deny inbound · SSH key auth</text>
+  <text x="174" y="373" text-anchor="middle" fill="#8b949e" font-size="8">passwords disabled · 3 retry ban · 1h bantime</text>
+
+  <!-- Infrastructure -->
+  <rect x="322" y="312" width="265" height="68" fill="#0b1120" rx="6" stroke="#1f6feb" stroke-width="1"/>
+  <text x="454" y="329" text-anchor="middle" fill="#388bfd" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">INFRASTRUCTURE</text>
+  <text x="454" y="346" text-anchor="middle" fill="#79c0ff" font-size="11" font-weight="600">Docker · Portainer · NPM</text>
+  <text x="454" y="361" text-anchor="middle" fill="#8b949e" font-size="8">Portainer :9443 · Nginx Proxy Manager :81</text>
+  <text x="454" y="373" text-anchor="middle" fill="#8b949e" font-size="8">auto TLS via Let's Encrypt · subdomain routing</text>
+
+  <!-- Dev Platform -->
+  <rect x="42" y="390" width="265" height="68" fill="#0b160b" rx="6" stroke="#238636" stroke-width="1"/>
+  <text x="174" y="407" text-anchor="middle" fill="#3fb950" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">DEV PLATFORM</text>
+  <text x="174" y="424" text-anchor="middle" fill="#56d364" font-size="11" font-weight="600">Gitea · Woodpecker CI/CD</text>
+  <text x="174" y="439" text-anchor="middle" fill="#8b949e" font-size="8">Gitea :3000 · self-hosted Git server</text>
+  <text x="174" y="451" text-anchor="middle" fill="#8b949e" font-size="8">Woodpecker :8000 · pipeline on every push</text>
+
+  <!-- Observability -->
+  <rect x="322" y="390" width="265" height="68" fill="#161106" rx="6" stroke="#d29922" stroke-width="1"/>
+  <text x="454" y="407" text-anchor="middle" fill="#e3b341" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">OBSERVABILITY</text>
+  <text x="454" y="424" text-anchor="middle" fill="#f0c860" font-size="11" font-weight="600">Prometheus · Grafana</text>
+  <text x="454" y="439" text-anchor="middle" fill="#8b949e" font-size="8">Node Exporter :9100 · Prometheus :9090</text>
+  <text x="454" y="451" text-anchor="middle" fill="#8b949e" font-size="8">Grafana :3001 · dashboard #1860 · alerting</text>
+
+  <!-- Applications -->
+  <rect x="42" y="468" width="265" height="68" fill="#110b1a" rx="6" stroke="#8957e5" stroke-width="1"/>
+  <text x="174" y="485" text-anchor="middle" fill="#bc8cff" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">APPLICATIONS</text>
+  <text x="174" y="502" text-anchor="middle" fill="#d2a8ff" font-size="11" font-weight="600">Calibre-Web</text>
+  <text x="174" y="517" text-anchor="middle" fill="#8b949e" font-size="8">:8083 · ebook library + management</text>
+  <text x="174" y="529" text-anchor="middle" fill="#8b949e" font-size="8">Tailscale Funnel → public HTTPS access</text>
+
+  <!-- Remote Access / Tailscale -->
+  <rect x="322" y="468" width="265" height="68" fill="#061a1a" rx="6" stroke="#0891b2" stroke-width="1"/>
+  <text x="454" y="485" text-anchor="middle" fill="#22d3ee" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">REMOTE ACCESS</text>
+  <text x="454" y="502" text-anchor="middle" fill="#67e8f9" font-size="11" font-weight="600">Tailscale</text>
+  <text x="454" y="517" text-anchor="middle" fill="#8b949e" font-size="8">WireGuard-based mesh VPN · punches CG-NAT</text>
+  <text x="454" y="529" text-anchor="middle" fill="#8b949e" font-size="8">Funnel: debian.tail5b5a2a.ts.net (HTTPS)</text>
+
+  <!-- Tailscale Funnel note bottom of VM100 -->
+  <rect x="42" y="546" width="545" height="22" fill="#0d1b2e" rx="4" stroke="#1f6feb" stroke-width="0.5" stroke-dasharray="4,2"/>
+  <text x="314" y="561" text-anchor="middle" fill="#388bfd" font-size="8.5">Tailscale Funnel exposes Calibre-Web to the internet via HTTPS — no open ports — outbound-only tunnel</text>
+
+  <!-- MAC note VM100 bottom -->
+  <rect x="42" y="576" width="545" height="22" fill="#030d06" rx="4" stroke="#238636" stroke-width="0.5" stroke-dasharray="4,2"/>
+  <text x="314" y="591" text-anchor="middle" fill="#3fb950" font-size="8.5">MAC D8:9E:F3:06:09:42 (Proxmox host) · BC:24:11:AF:39:9D (VM 100) — DHCP reservations on RAX48</text>
+
+  <!-- VM100 bottom note: onboot -->
+  <rect x="42" y="606" width="545" height="22" fill="#100c00" rx="4" stroke="#d29922" stroke-width="0.5" stroke-dasharray="4,2"/>
+  <text x="314" y="621" text-anchor="middle" fill="#e3b341" font-size="8.5">onboot: 1 — VM auto-starts on Proxmox host power-on · self-recovered after network change</text>
+
+  <!-- ══════════════════════ VM 101 ══════════════════════ -->
+  <rect x="612" y="270" width="320" height="412" fill="#010409" rx="8" stroke="#8957e5" stroke-width="1.2"/>
+  <text x="772" y="289" text-anchor="middle" fill="#d2a8ff" font-size="12" font-weight="700" font-family="system-ui,sans-serif">VM 101 · minecraft</text>
+  <text x="772" y="303" text-anchor="middle" fill="#8b949e" font-size="9">192.168.1.8 · 12 GB RAM · Debian 13 Trixie</text>
+
+  <!-- Minecraft Server box -->
+  <rect x="626" y="312" width="292" height="115" fill="#161006" rx="6" stroke="#e36209" stroke-width="1"/>
+  <text x="772" y="330" text-anchor="middle" fill="#f0883e" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">MINECRAFT SERVER</text>
+  <text x="772" y="348" text-anchor="middle" fill="#ffa657" font-size="11" font-weight="600">itzg/minecraft-server</text>
+  <text x="772" y="364" text-anchor="middle" fill="#c9d1d9" font-size="9">VERSION: LATEST · Java Edition</text>
+  <text x="772" y="378" text-anchor="middle" fill="#8b949e" font-size="8">INIT_MEMORY: 2G · MAX_MEMORY: 10G</text>
+  <text x="772" y="390" text-anchor="middle" fill="#8b949e" font-size="8">Aikar JVM flags · port :25565</text>
+  <text x="772" y="402" text-anchor="middle" fill="#8b949e" font-size="8">World: named Docker volume (minecraft_data)</text>
+  <text x="772" y="416" text-anchor="middle" fill="#8b949e" font-size="8">RCON: docker exec -i minecraft-1 rcon-cli</text>
+
+  <!-- playit.gg agent -->
+  <rect x="626" y="436" width="292" height="70" fill="#120829" rx="6" stroke="#a855f7" stroke-width="1"/>
+  <text x="772" y="453" text-anchor="middle" fill="#d2a8ff" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">TUNNEL AGENT</text>
+  <text x="772" y="470" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="600">playit.gg</text>
+  <text x="772" y="485" text-anchor="middle" fill="#8b949e" font-size="8">systemd service · auto-start on boot</text>
+  <text x="772" y="497" text-anchor="middle" fill="#c9d1d9" font-size="8">physical-scared.gl.joinmc.link</text>
+
+  <!-- Node Exporter VM101 -->
+  <rect x="626" y="516" width="292" height="55" fill="#161106" rx="6" stroke="#d29922" stroke-width="1"/>
+  <text x="772" y="533" text-anchor="middle" fill="#e3b341" font-size="9" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1">MONITORING</text>
+  <text x="772" y="549" text-anchor="middle" fill="#f0c860" font-size="11" font-weight="600">Node Exporter :9100</text>
+  <text x="772" y="562" text-anchor="middle" fill="#8b949e" font-size="8">host networking · scraped by Prometheus on VM 100</text>
+
+  <!-- VM101 MAC note -->
+  <rect x="626" y="581" width="292" height="22" fill="#030d06" rx="4" stroke="#238636" stroke-width="0.5" stroke-dasharray="4,2"/>
+  <text x="772" y="596" text-anchor="middle" fill="#3fb950" font-size="8">MAC BC:24:11:01:39:B6 · ens18 via ifupdown</text>
+
+  <!-- VM101 onboot note -->
+  <rect x="626" y="611" width="292" height="22" fill="#100c00" rx="4" stroke="#d29922" stroke-width="0.5" stroke-dasharray="4,2"/>
+  <text x="772" y="626" text-anchor="middle" fill="#e3b341" font-size="8">onboot: 1 · ens18 declared in /etc/network/interfaces</text>
+
+  <!-- ══════════════════════ CONNECTION LINES ══════════════════════ -->
+
+  <!-- Tailscale: Admin devices → VM 100 -->
+  <path d="M 183 145 L 183 197" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="5,3" fill="none" opacity="0.8" marker-end="url(#arr-cyan)"/>
+  <text x="150" y="175" fill="#06b6d4" font-size="8" font-family="system-ui,sans-serif" text-anchor="middle">Tailscale</text>
+  <text x="150" y="185" fill="#8b949e" font-size="7" font-family="system-ui,sans-serif" text-anchor="middle">WireGuard</text>
+
+  <!-- playit.gg: Players → VM 101 -->
+  <path d="M 854 145 L 854 197" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5,3" fill="none" opacity="0.8" marker-end="url(#arr-purple)"/>
+  <text x="890" y="175" fill="#a855f7" font-size="8" font-family="system-ui,sans-serif" text-anchor="middle">playit.gg</text>
+  <text x="890" y="185" fill="#8b949e" font-size="7" font-family="system-ui,sans-serif" text-anchor="middle">relay</text>
+
+  <!-- Router → Proxmox internal arrows -->
+  <path d="M 313 237 L 313 243" stroke="#30363d" stroke-width="1" fill="none" opacity="0.6"/>
+  <path d="M 772 237 L 772 243" stroke="#30363d" stroke-width="1" fill="none" opacity="0.6"/>
+
+  <!-- Prometheus scraping VM101 Node Exporter -->
+  <path d="M 587 424 L 600 424 L 600 543 L 626 543" stroke="#d29922" stroke-width="1.2" stroke-dasharray="4,2" fill="none" opacity="0.7" marker-end="url(#arr-amber)"/>
+  <text x="601" y="418" fill="#e3b341" font-size="7.5" font-family="system-ui,sans-serif">scrape :9100</text>
+  <text x="601" y="428" fill="#8b949e" font-size="7" font-family="system-ui,sans-serif">15s interval</text>
+
+  <!-- ══════════════════════ LEGEND ══════════════════════ -->
+  <rect x="15" y="693" width="930" height="1" fill="transparent"/>
+
+  <!-- Small legend at very bottom inside canvas -->
+  <rect x="28" y="650" width="900" height="38" fill="#161b22" rx="6" stroke="#30363d" stroke-width="0.5"/>
+  <text x="480" y="663" text-anchor="middle" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif" letter-spacing="1">LEGEND</text>
+
+  <!-- Security -->
+  <rect x="50" y="668" width="8" height="8" fill="#da3633" rx="1"/>
+  <text x="62" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">Security</text>
+
+  <!-- Infra -->
+  <rect x="130" y="668" width="8" height="8" fill="#1f6feb" rx="1"/>
+  <text x="142" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">Infrastructure</text>
+
+  <!-- Dev -->
+  <rect x="235" y="668" width="8" height="8" fill="#238636" rx="1"/>
+  <text x="247" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">Dev Platform</text>
+
+  <!-- Observability -->
+  <rect x="335" y="668" width="8" height="8" fill="#d29922" rx="1"/>
+  <text x="347" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">Observability</text>
+
+  <!-- Apps -->
+  <rect x="440" y="668" width="8" height="8" fill="#8957e5" rx="1"/>
+  <text x="452" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">Applications</text>
+
+  <!-- Tailscale line -->
+  <line x1="530" y1="672" x2="555" y2="672" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="560" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">Tailscale VPN</text>
+
+  <!-- playit line -->
+  <line x1="648" y1="672" x2="673" y2="672" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="678" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">playit.gg tunnel</text>
+
+  <!-- scrape line -->
+  <line x1="765" y1="672" x2="790" y2="672" stroke="#d29922" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <text x="795" y="676" fill="#8b949e" font-size="8" font-family="system-ui,sans-serif">Prometheus scrape</text>
+</svg>
