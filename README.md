@@ -5,6 +5,10 @@
 
 ![Architecture diagram](./docs/architecture.svg)
 
+## Monitoring
+
+Grafana dashboard JSON model: [`node-exporter-full.json`](./docs/node-exporter-full.json)
+
 ## Hardware
 
 | Component  | Details                                                     |
