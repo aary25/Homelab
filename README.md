@@ -86,11 +86,11 @@ Three-part solution:
 
 ## Why I built this
 
-As a Computer Engineering student I wanted hands-on experience with the infrastructure layer that sits beneath every application I write in class — the part that courses teach abstractly but rarely let you touch. Cloud platforms handle it all behind a dashboard; I wanted to understand what that dashboard is actually doing.
+As a Computer Engineering student I wanted hands-on experience with the infrastructure layer that sits beneath every application I write in class.The part that courses teach abstractly but rarely let you touch. Cloud platforms handle it all behind a dashboard; I wanted to understand what that dashboard is actually doing.
 
-The original idea was simple: run a VPN, containerize some services, call it done. What I got instead was a semester-long lesson in every assumption I didn't know I was making. The first real surprise came when I discovered my apartment ISP uses **Carrier-Grade NAT** — my router's WAN IP (`10.104.6.249`) is itself behind a NAT I don't control. Port forwarding, the standard approach for remote homelab access, is simply impossible here. That constraint forced me to actually understand the problem rather than copy a tutorial: WireGuard needs reachable endpoints; CG-NAT removes them. The solution — Tailscale's coordination server bootstrapping peer-to-peer WireGuard tunnels, and playit.gg relaying Minecraft traffic — only made sense once I understood *why* the naive approach failed.
+The original idea was simple: run a VPN, containerize some services, call it done. What I got instead was a semester-long lesson in every assumption I didn't know I was making. The first real surprise came when I discovered my apartment ISP uses **Carrier-Grade NAT** — my router's WAN IP (`10.104.6.249`) is itself behind a NAT I don't control. Port forwarding, the standard approach for remote homelab access, is simply impossible here. That constraint forced me to actually understand the problem rather than copy a tutorial: WireGuard needs reachable endpoints; CG-NAT removes them. The solution, Tailscale's coordination server bootstrapping peer-to-peer WireGuard tunnels, and playit.gg relaying Minecraft traffic, only made sense once I understood *why* the naive approach failed.
 
-I also wanted something concrete to talk about in internship interviews. A deployed stack that I've broken and recovered, that runs continuously, that I monitor and maintain — that's a different kind of evidence than coursework.
+I also wanted something concrete to talk about in internship interviews. A deployed stack that I've broken and recovered, that runs continuously, that I monitor and maintain, that's a different kind of evidence than coursework.
 
 
 ## What I learned
